@@ -55,7 +55,7 @@ const ExpenseCard: React.FC = () => {
           <Grid container spacing={1}>
             <Grid item xs={12} sm={4}>
               <Typography variant="body2" color="textSecondary">
-                Freight Charge
+                Freight
               </Typography>
               <Box display="flex" alignItems="center">
                 <LinearProgress
@@ -75,7 +75,7 @@ const ExpenseCard: React.FC = () => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <Typography variant="body2" color="textSecondary">
-                Driver Charge
+                Driver
               </Typography>
               <Box display="flex" alignItems="center">
                 <LinearProgress
@@ -95,7 +95,7 @@ const ExpenseCard: React.FC = () => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <Typography variant="body2" color="textSecondary">
-                Other Charges
+                Other
               </Typography>
               <Box display="flex" alignItems="center">
                 <LinearProgress

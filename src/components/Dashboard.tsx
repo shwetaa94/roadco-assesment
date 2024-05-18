@@ -10,28 +10,30 @@ import { Grid, Container } from "@mui/material";
 
 const Dashboard: React.FC = () => {
   return (
-    <Container>
-      <Grid container spacing={3}>
-        <Grid item xs={10} md={3}>
+    <div className="flex-col gap-3 px-4 bg-blue-50">
+      <div className="p-6  text-3xl">Dashboard</div>
+      <div className="flex gap-2">
+        <div className="w-60">
           <OrderCard />
-        </Grid>
-        <Grid item xs={10} md={3}>
+        </div>
+        <div className="w-60">
           <TripCard />
-        </Grid>
-        <Grid item xs={10} md={3}>
+        </div>
+        <div className="w-60">
           <RevenueCard />
-        </Grid>
-        <Grid item xs={10} md={3}>
+        </div>
+        <div className="w-64">
           <ExpenseCard />
-        </Grid>
-        <Grid item xs={10}>
-          <QuickActions />
-        </Grid>
-        <Grid item xs={10} md={6}>
-          <AlertCard />
-        </Grid>
-      </Grid>
-    </Container>
+        </div>
+      </div>
+
+      <div className="my-4 ">
+        <QuickActions />
+      </div>
+      <div>
+        <AlertCard />
+      </div>
+    </div>
   );
 };
 

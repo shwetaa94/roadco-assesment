@@ -9,6 +9,7 @@ import { PiSquaresFour } from "react-icons/pi";
 import { TbBus, TbTruckDelivery } from "react-icons/tb";
 
 const logo: ReactNode[] = [
+    
   <PiSquaresFour />,
   <PiTelevisionSimpleBold />,
   <GrFastForward />,
@@ -27,7 +28,7 @@ const Sidebar: React.FC = () => {
     <div className="w-10 ml-5 mt-5">
       <div className="flex-col ">
         {logo.map((item: ReactNode, index: number) => (
-          <div key={index} className="text-xl mb-3 ">
+          <div key={index} className="text-3xl font-light text-slate-600 mb-3 ">
             {item}
           </div>
         ))}

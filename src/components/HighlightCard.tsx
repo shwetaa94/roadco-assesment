@@ -9,7 +9,7 @@ const HighlightCard: React.FC = () => {
   );
 
   return (
-    <div>
+    <div className="">
       <div className="text-3xl font-semibold mt-6 ">Highlights(6) </div>
       <span>Date:18/May/2024</span>
       <div className="flex mt-3">

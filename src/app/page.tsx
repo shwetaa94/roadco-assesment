@@ -9,15 +9,15 @@ import HighlightCard from "@/components/HighlightCard";
 const Home: React.FC = () => {
   return (
     <Provider store={store}>
-      <div className="flex">
-        <div>
+      <div className=" w-screen flex">
+        <div className="w-5%">
           <Sidebar />
         </div>
-        <div>
-          <div className="m-6  text-3xl">Dashboard</div>
+        <div className="w-60%">
+          
           <Dashboard />
         </div>
-        <div>
+        <div className="w-35%">
           <HighlightCard />
         </div>
       </div>

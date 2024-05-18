@@ -7,11 +7,13 @@ const AlertCard: React.FC = () => {
   const alerts = useSelector((state: RootState) => state.dashboard.alerts);
 
   return (
-    <div className="w-screen">
-      <div className="text-3xl mb-4 font-semibold">High Priority Alerts</div>
-      <div className="flex gap-3">
+    <div className="">
+      <div className="text-2xl mb-4 font-semibold mx-4">
+        High Priority Alerts
+      </div>
+      <div className="flex gap-3 bg-white">
         {alerts.map((alert, index) => (
-          <div className=" w-[348px]  border p-4 ">
+          <div className=" w-[480px] border p-4 mx-2 ">
             <div className="text-xl font-semibold">{alert.title}</div>
             <div className="text-xs mb-3">{alert.subheading}</div>
             <div className="text-sm">{alert.message}</div>
