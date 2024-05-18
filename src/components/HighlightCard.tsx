@@ -9,25 +9,22 @@ const HighlightCard: React.FC = () => {
   );
 
   return (
-    <Card>
-      <CardContent>
-        <Typography variant="h5" component="div">
-          Today's Highlights
-        </Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <Typography variant="body2" color="textSecondary">
-              Income: {highlights.income} CAD
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="body2" color="textSecondary">
-              Expenses: {highlights.expenses} CAD
-            </Typography>
-          </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
+    <div>
+      <div className="text-3xl font-semibold mt-6 ">Highlights(6) </div>
+      <span>Date:18/May/2024</span>
+      <div className="flex mt-3">
+        <div className="flex-col gap-3 p-4 m-2 border">
+          <div>Income</div>
+          <div className="text-2xl text-green-500">{highlights.income}</div>
+          <div>Two payment recieved</div>
+        </div>
+        <div className="flex-col gap-3 p-4 m-2 border">
+          <div>Expenses</div>
+          <div className="text-2xl text-red-600">{highlights.expenses}</div>
+          <div>Five payment Paid</div>
+        </div>
+      </div>
+    </div>
   );
 };
 

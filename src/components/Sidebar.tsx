@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
     <div className="w-10 ml-5 mt-5">
       <div className="flex-col ">
         {logo.map((item: ReactNode, index: number) => (
-          <div key={index} className="text-3xl mb-3 ">
+          <div key={index} className="text-xl mb-3 ">
             {item}
           </div>
         ))}
