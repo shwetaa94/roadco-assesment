@@ -10,14 +10,13 @@ const Home: React.FC = () => {
   return (
     <Provider store={store}>
       <div className=" w-screen flex">
-        <div className="w-5%">
+        <div className="">
           <Sidebar />
         </div>
-        <div className="w-60%">
-          
+        <div className="">
           <Dashboard />
         </div>
-        <div className="w-35%">
+        <div className="">
           <HighlightCard />
         </div>
       </div>

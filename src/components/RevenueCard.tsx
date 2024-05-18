@@ -7,7 +7,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const RevenueCard: React.FC = () => {
+const TripCard: React.FC = () => {
   const revenue = useSelector((state: RootState) => state.dashboard.revenue);
 
   const data = {
@@ -16,7 +16,7 @@ const RevenueCard: React.FC = () => {
       {
         data: [revenue.upcoming, revenue.ongoing, revenue.completed],
         backgroundColor: ["#7464FF", "#4FD2B5", "#FFCB49"],
-        hoverBackgroundColor: ["#A99EFF", "#80EAD0", "#FFE389"], 
+        hoverBackgroundColor: ["#A99EFF", "#80EAD0", "#FFE389"],
       },
     ],
   };
@@ -60,4 +60,4 @@ const RevenueCard: React.FC = () => {
   );
 };
 
-export default RevenueCard;
+export default TripCard;
