@@ -1,17 +1,10 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Box,
-  LinearProgress,
-  Grid,
-} from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
+// Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const RevenueCard: React.FC = () => {
@@ -22,8 +15,8 @@ const RevenueCard: React.FC = () => {
     datasets: [
       {
         data: [revenue.upcoming, revenue.ongoing, revenue.completed],
-        backgroundColor: ["#FFD700", "#8A2BE2", "#00FA9A"],
-        hoverBackgroundColor: ["#FFC107", "#8B3A62", "#00FF7F"],
+        backgroundColor: ["#7464FF", "#4FD2B5", "#FFCB49"],
+        hoverBackgroundColor: ["#A99EFF", "#80EAD0", "#FFE389"], 
       },
     ],
   };
@@ -38,85 +31,32 @@ const RevenueCard: React.FC = () => {
   };
 
   return (
-    <Card>
-      <CardContent>
-        <Typography variant="h6" component="div" gutterBottom>
-          Revenue
-        </Typography>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="150px"
-        >
-          <Doughnut data={data} options={options} />
-        </Box>
-        <Box mt={2}>
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" color="textSecondary">
-                Upcoming
-              </Typography>
-              <Box display="flex" alignItems="center">
-                <LinearProgress
-                  variant="determinate"
-                  value={(revenue.upcoming / revenue.total) * 100}
-                  style={{
-                    flexGrow: 1,
-                    marginRight: 8,
-                    backgroundColor: "#FFF5E0",
-                    height: "10px",
-                  }}
-                />
-                <Typography variant="body2" color="textSecondary">
-                  {revenue.upcoming}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" color="textSecondary">
-                Ongoing
-              </Typography>
-              <Box display="flex" alignItems="center">
-                <LinearProgress
-                  variant="determinate"
-                  value={(revenue.ongoing / revenue.total) * 100}
-                  style={{
-                    flexGrow: 1,
-                    marginRight: 8,
-                    backgroundColor: "#E0E0FF",
-                    height: "10px",
-                  }}
-                />
-                <Typography variant="body2" color="textSecondary">
-                  {revenue.ongoing}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" color="textSecondary">
-                Completed
-              </Typography>
-              <Box display="flex" alignItems="center">
-                <LinearProgress
-                  variant="determinate"
-                  value={(revenue.completed / revenue.total) * 100}
-                  style={{
-                    flexGrow: 1,
-                    marginRight: 8,
-                    backgroundColor: "#E0FFF5",
-                    height: "10px",
-                  }}
-                />
-                <Typography variant="body2" color="textSecondary">
-                  {revenue.completed}
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
-      </CardContent>
-    </Card>
+    <div className="border border-gray-300 rounded-lg p-4 bg-white shadow">
+      <div className="mb-4">
+        <h6 className="m-0">Revenue</h6>
+      </div>
+      <div className="flex justify-center items-center h-40">
+        <Doughnut data={data} options={options} />
+      </div>
+      <div className="mt-4">
+        <div className="flex-col gap">
+          <div className="flex justify-between bg-gradient-to-l from-[#FFCB49]  to-[#f2f4c2] p-2 mb-2 rounded">
+            <span className="text-sm font-semibold">Upcoming</span>
+
+            <span className="text-sm font-semibold">{revenue.upcoming}</span>
+          </div>
+          <div className="flex justify-between bg-gradient-to-l from-[#7464FF] to-[#dedee0]   p-2 mb-2 rounded">
+            <span className="text-sm font-semibold">Ongoing</span>
+
+            <span className="text-sm font-semibold">{revenue.ongoing}</span>
+          </div>
+          <div className="flex justify-between p-2 mb-2 bg-gradient-to-l from-[#4FD2B5]  to-[#e8f8f4] rounded">
+            <span className="text-sm font-semibold">Completed</span>
+            <span className="text-sm font-semibold">{revenue.completed}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

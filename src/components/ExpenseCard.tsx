@@ -1,29 +1,22 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Box,
-  LinearProgress,
-  Grid,
-} from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
+// Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ExpenseCard: React.FC = () => {
   const expenses = useSelector((state: RootState) => state.dashboard.expenses);
 
   const data = {
-    labels: ["Freight Charge", "Driver Charge", "Other Charges"],
+    labels: ["freight", "driver", "other"],
     datasets: [
       {
         data: [expenses.freight, expenses.driver, expenses.other],
-        backgroundColor: ["#FFD700", "#8A2BE2", "#00FA9A"],
-        hoverBackgroundColor: ["#FFC107", "#8B3A62", "#00FF7F"],
+        backgroundColor: ["#7464FF", "#4FD2B5", "#FFCB49"],
+        hoverBackgroundColor: ["#A99EFF", "#80EAD0", "#FFE389"],
       },
     ],
   };
@@ -38,85 +31,32 @@ const ExpenseCard: React.FC = () => {
   };
 
   return (
-    <Card>
-      <CardContent>
-        <Typography variant="h6" component="div" gutterBottom>
-          Expenses
-        </Typography>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="150px"
-        >
-          <Doughnut data={data} options={options} />
-        </Box>
-        <Box mt={2}>
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" color="textSecondary">
-                Freight
-              </Typography>
-              <Box display="flex" alignItems="center">
-                <LinearProgress
-                  variant="determinate"
-                  value={(expenses.freight / expenses.total) * 100}
-                  style={{
-                    flexGrow: 1,
-                    marginRight: 8,
-                    backgroundColor: "#FFF5E0",
-                    height: "10px",
-                  }}
-                />
-                <Typography variant="body2" color="textSecondary">
-                  {expenses.freight}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" color="textSecondary">
-                Driver
-              </Typography>
-              <Box display="flex" alignItems="center">
-                <LinearProgress
-                  variant="determinate"
-                  value={(expenses.driver / expenses.total) * 100}
-                  style={{
-                    flexGrow: 1,
-                    marginRight: 8,
-                    backgroundColor: "#E0E0FF",
-                    height: "10px",
-                  }}
-                />
-                <Typography variant="body2" color="textSecondary">
-                  {expenses.driver}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Typography variant="body2" color="textSecondary">
-                Other
-              </Typography>
-              <Box display="flex" alignItems="center">
-                <LinearProgress
-                  variant="determinate"
-                  value={(expenses.other / expenses.total) * 100}
-                  style={{
-                    flexGrow: 1,
-                    marginRight: 8,
-                    backgroundColor: "#E0FFF5",
-                    height: "10px",
-                  }}
-                />
-                <Typography variant="body2" color="textSecondary">
-                  {expenses.other}
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </Box>
-      </CardContent>
-    </Card>
+    <div className="border border-gray-300 rounded-lg p-4 bg-white shadow">
+      <div className="mb-4">
+        <h6 className="m-0">expenses</h6>
+      </div>
+      <div className="flex justify-center items-center h-40">
+        <Doughnut data={data} options={options} />
+      </div>
+      <div className="mt-4">
+        <div className="flex-col gap">
+          <div className="flex justify-between bg-gradient-to-l from-[#FFCB49]  to-[#f2f4c2] p-2 mb-2 rounded">
+            <span className="text-sm font-semibold">Upcoming</span>
+
+            <span className="text-sm font-semibold">{expenses.freight}</span>
+          </div>
+          <div className="flex justify-between bg-gradient-to-l from-[#7464FF] to-[#dedee0]   p-2 mb-2 rounded">
+            <span className="text-sm font-semibold">Ongoing</span>
+
+            <span className="text-sm font-semibold">{expenses.driver}</span>
+          </div>
+          <div className="flex justify-between p-2 mb-2 bg-gradient-to-l from-[#4FD2B5]  to-[#e8f8f4] rounded">
+            <span className="text-sm font-semibold">Completed</span>
+            <span className="text-sm font-semibold">{expenses.other}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
