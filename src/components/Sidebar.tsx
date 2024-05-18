@@ -38,8 +38,8 @@ const Sidebar: React.FC = () => {
         <circle cx="16" cy="10" r="9" stroke="#2429A9" strokeWidth="2" />
       </svg>
       <div className="flex-col ">
-        {logo.map((item: ReactNode, index: number) => (
-          <div key={index} className="text-3xl font-light text-slate-600 mb-4 ">
+        {logo.map((item: ReactNode) => (
+          <div  className="text-3xl font-light text-slate-600 mb-4 ">
             {item}
           </div>
         ))}
