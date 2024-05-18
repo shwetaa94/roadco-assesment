@@ -13,8 +13,8 @@ const AlertCard: React.FC = () => {
         High Priority Alerts
       </div>
       <div className="flex gap-3 ">
-        {alerts.map((alert, index) => (
-          <div className=" w-[480px] bg-white  p-4 mx-2 ">
+        {alerts.map((alert) => (
+          <div key={alert.title} className=" w-[480px] bg-white  p-4 mx-2 ">
             <div className="flex gap-3">
               <div className="text-xl p-2 bg-blue-100">
                 <FaRegUser />
