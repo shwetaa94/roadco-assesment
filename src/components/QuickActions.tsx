@@ -36,10 +36,12 @@ const QuickActions: React.FC = () => {
           <div className="px-8 py-2 pt-6 text-center  bg-white" key={index}>
             <div className="pr-4  border-r-2  border-r-slate-400">
               <div className="w-[120px] h-[40px] flex justify-center items-center">
-                <div className="text-4xl text-slate-700 ">{x.logo}</div>
+                <div className="text-xl font-bold text-slate-700 ">
+                  {x.logo}
+                </div>
               </div>
             </div>
-            <div className="text-md font-semibold">{x.name}</div>
+            <div className="text-sm font-semibold">{x.name}</div>
           </div>
         ))}
       </div>
